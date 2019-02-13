@@ -1,0 +1,177 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for Failed to commit area from 0x00000006c0800000 to 0x00000006d0800000 of length 268435456.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3221), pid=18100, tid=15804
+#
+# JRE version:  (10.0.1+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (10.0.1+10, mixed mode, aot, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: com.jarek.datascraper.ApicreatorApplication
+
+Host: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz, 4 cores, 15G,  Windows 10 , 64 bit Build 17134 (10.0.17134.1)
+Time: Sat Feb 09 17:35:31 2019 ?rodkowoeuropejski czas stand. elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001c54e0b2800):  JavaThread "Unknown thread" [_thread_in_vm, id=15804, stack(0x00000071c6f00000,0x00000071c7000000)]
+
+Stack: [0x00000071c6f00000,0x00000071c7000000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5a0369]
+V  [jvm.dll+0x6bcf81]
+V  [jvm.dll+0x6be176]
+V  [jvm.dll+0x6be803]
+V  [jvm.dll+0x234998]
+V  [jvm.dll+0x59dc74]
+V  [jvm.dll+0x592ab5]
+V  [jvm.dll+0x2f625b]
+V  [jvm.dll+0x2f61c5]
+V  [jvm.dll+0x2f60a2]
+V  [jvm.dll+0x2f8286]
+V  [jvm.dll+0x3440d3]
+V  [jvm.dll+0x3447e6]
+V  [jvm.dll+0x3441d3]
+V  [jvm.dll+0x2c43b8]
+V  [jvm.dll+0x2c5501]
+V  [jvm.dll+0x69d33b]
+V  [jvm.dll+0x69eb5c]
+V  [jvm.dll+0x351849]
+V  [jvm.dll+0x6859c2]
+V  [jvm.dll+0x3ba0a3]
+V  [jvm.dll+0x3bc201]
+C  [java.exe+0x3531]
+C  [java.exe+0xe1af]
+C  [java.exe+0xe356]
+C  [KERNEL32.DLL+0x13034]
+C  [ntdll.dll+0x73691]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001c54dec28c0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001c54e0c9800 GCTaskThread "GC Thread#0" [stack: 0x00000071c7000000,0x00000071c7100000] [id=16516]
+  0x000001c54e0cd000 GCTaskThread "GC Thread#1" [stack: 0x00000071c7100000,0x00000071c7200000] [id=12520]
+  0x000001c54e0ce800 GCTaskThread "GC Thread#2" [stack: 0x00000071c7200000,0x00000071c7300000] [id=7896]
+  0x000001c54e0d1000 GCTaskThread "GC Thread#3" [stack: 0x00000071c7300000,0x00000071c7400000] [id=15740]
+  0x000001c54e11a800 ConcurrentGCThread "G1 Main Marker" [stack: 0x00000071c7400000,0x00000071c7500000] [id=624]
+  0x000001c54e11f800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00000071c7500000,0x00000071c7600000] [id=9344]
+
+[error occurred during error reporting (printing all threads), id 0xe0000002]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001c54e0b1380] Heap_lock - owner thread: 0x000001c54e0b2800
+
+Heap address: 0x00000006c0800000, size: 4088 MB, Compressed Oops mode: Non-zero based: 0x00000006c0800000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff6b6230000 - 0x00007ff6b626e000 	C:\Program Files\Java\jdk-10.0.1\bin\java.exe
+0x00007ff914270000 - 0x00007ff914451000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8f82e0000 - 0x00007ff8f82f2000 	C:\Program Files\AVAST Software\Avast\aswhook.dll
+0x00007ff913240000 - 0x00007ff9132f2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff9110a0000 - 0x00007ff911313000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff913010000 - 0x00007ff9130b1000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff913300000 - 0x00007ff91339e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff912fb0000 - 0x00007ff91300b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff913e90000 - 0x00007ff913fb4000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff9140b0000 - 0x00007ff914240000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff910f20000 - 0x00007ff910f40000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff912f80000 - 0x00007ff912fa8000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff911560000 - 0x00007ff9116f2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff910dd0000 - 0x00007ff910e6f000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff910f40000 - 0x00007ff91103a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff9088f0000 - 0x00007ff908b59000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.523_none_fb409dd930672a56\COMCTL32.dll
+0x00007ff913950000 - 0x00007ff913c72000 	C:\WINDOWS\System32\combase.dll
+0x00007ff910640000 - 0x00007ff9106ba000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff90b4d0000 - 0x00007ff90b4da000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff911920000 - 0x00007ff91194d000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff8ddc80000 - 0x00007ff8ddd6f000 	C:\Program Files\Java\jdk-10.0.1\bin\msvcr120.dll
+0x00007ff8e42a0000 - 0x00007ff8e4346000 	C:\Program Files\Java\jdk-10.0.1\bin\msvcp120.dll
+0x0000000069760000 - 0x000000006a1d0000 	C:\Program Files\Java\jdk-10.0.1\bin\server\jvm.dll
+0x00007ff911910000 - 0x00007ff911918000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff901590000 - 0x00007ff901599000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff913c80000 - 0x00007ff913cec000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff90cf90000 - 0x00007ff90cfb3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff90cf60000 - 0x00007ff90cf8a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff911320000 - 0x00007ff911369000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ff906450000 - 0x00007ff90645f000 	C:\Program Files\Java\jdk-10.0.1\bin\verify.dll
+0x00007ff900800000 - 0x00007ff9009c9000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff9009f0000 - 0x00007ff900a19000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff8fa990000 - 0x00007ff8fa9b7000 	C:\Program Files\Java\jdk-10.0.1\bin\java.dll
+0x00007ff8f8be0000 - 0x00007ff8f8bf6000 	C:\Program Files\Java\jdk-10.0.1\bin\zip.dll
+0x00007ff906320000 - 0x00007ff90632a000 	C:\Program Files\Java\jdk-10.0.1\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-10.0.1\bin;C:\WINDOWS\SYSTEM32;C:\Program Files\AVAST Software\Avast;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.17134.523_none_fb409dd930672a56;C:\Program Files\Java\jdk-10.0.1\bin\server
+
+VM Arguments:
+java_command: com.jarek.datascraper.ApicreatorApplication
+java_class_path (initial): F:\JavaIntelliJ2019\apicreator\target\classes;C:\Users\Jarek\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.1.2.RELEASE\spring-boot-starter-data-jpa-2.1.2.RELEASE.jar;C:\Users\Jarek\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.1.2.RELEASE\spring-boot-starter-aop-2.1.2.RELEASE.jar;C:\Users\Jarek\.m2\repository\org\springframework\spring-aop\5.1.4.RELEASE\spring-aop-5.1.4.RELEASE.jar;C:\Users\Jarek\.m2\repository\org\aspectj\aspectjweaver\1.9.2\aspectjweaver-1.9.2.jar;C:\Users\Jarek\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.1.2.RELEASE\spring-boot-starter-jdbc-2.1.2.RELEASE.jar;C:\Users\Jarek\.m2\repository\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;C:\Users\Jarek\.m2\repository\org\springframework\spring-jdbc\5.1.4.RELEASE\spring-jdbc-5.1.4.RELEASE.jar;C:\Users\Jarek\.m2\repository\javax\transaction\javax.transaction-api\1.3\javax.transaction-api-1.3.jar;C:\Users\Jarek\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\Jarek\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\Jarek\.m2\repository\org\hibernate\hibernate-core\5.3.7.Final\hibernate-core-5.3.7.Final.jar;C:\Users\Jarek\.m2\repository\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;C:\Users\Jarek\.m2\repository\javax\persistence\javax.persistence-api\2.2\javax.persistence-api-2.2.jar;C:\Users\Jarek\.m2\repository\org\javassist\javassist\3.23.1-GA\javassist-3.23.1-GA.jar;C:\Users\Jarek\.m2\repository\net\bytebuddy\byte-buddy\1.9.7\byte-buddy-1.9.7.jar;C:\Users\Jarek\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\Jarek\.m2\repository\org\jboss\jandex\2.0.5.Final\jandex-2.0.5.Final.jar;C:\Users\Jarek\.m2\repository\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;C:\Users\Jarek\.m2\repository\org\dom4j\dom4j\2.1.1\dom4j-2.1.1.jar;C:\Users\Jarek\.m2\repository\org\hibernate\common\hibernate-commons-annota
+Launcher Type: SUN_STANDARD
+
+Logging:
+Log output configuration:
+#0: stdout all=warning uptime,level,tags
+#1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-10.0.1
+PATH=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.0\libnvvp;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\gradle-4.4\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\AOMEI Backupper;C:\apache-maven-3.5.3-bin\apache-maven-3.5.3\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-10.0.1;C:\Python36;C:\Gradle\gradle-5.1.1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\gradle-4.4\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\AOMEI Backupper;C:\apache-maven-3.5.3-bin\apache-maven-3.5.3\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-10.0.1;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\AMD\ATI.ACE\Core-Static;C:\gradle-4.4\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;F:\AOMEI Backupper;C:\a;C:\Python36\Scripts;C:\Python36;C:\Gradle\gradle-5.1.1\bin;
+USERNAME=Jarek
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 58 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 17134 (10.0.17134.1)
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit, tscinv
+
+Memory: 4k page, physical 16737808k(6686564k free), swap 19707408k(75072k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (10.0.1+10) for windows-amd64 JRE (10.0.1+10), built on Mar 27 2018 02:27:48 by "mach5one" with MS VC++ 12.0 (VS2013)
+
+END.
