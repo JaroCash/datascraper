@@ -14,4 +14,4 @@ Data scraping app that parser HTML pages of Gry-Online.pl games encyclopedia and
 * Maven
 
 ## Features
-Asynchronous parsing service parser and stores over 20k game titles and basic info into database.
+Asynchronous parsing service parses and stores over 20k game titles and basic info into database.
