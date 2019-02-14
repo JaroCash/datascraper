@@ -4,7 +4,6 @@ Data scraping app that parser HTML pages of Gry-Online.pl games encyclopedia and
 ## Table of contents
 * [Technologies](#technologies)
 * [Features](#Features)
-* [To do](#todo)
 
 ## Technologies
 * Spring Boot, REST, Data
