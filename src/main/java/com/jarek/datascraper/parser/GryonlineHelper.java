@@ -2,6 +2,8 @@ package com.jarek.datascraper.parser;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 public class GryonlineHelper {
 
@@ -46,9 +48,7 @@ public class GryonlineHelper {
         }
         calculatedRanges[numberOfRanges] = numberOfPages;
 
-        for (int i : calculatedRanges) {
-            System.out.println(i);
-        }
+        System.out.println(Arrays.toString(calculatedRanges));
 
         return calculatedRanges;
 

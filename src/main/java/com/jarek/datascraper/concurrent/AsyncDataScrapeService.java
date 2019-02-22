@@ -23,10 +23,10 @@ public class AsyncDataScrapeService {
     }
 
     @Async
-    public void scrapeVideogamesInPageRange(int start, int end) {
+    public void scrapeVideogamesInPageRange(int startPage, int endPage) {
 
         System.out.println( Thread.currentThread().getId() + Thread.currentThread().getName());
-        List<Videogame> videogameList = gryonlineParser.getVideogamesInPagesRange(AFTER_RELEASE_URL, start, end);
+        List<Videogame> videogameList = gryonlineParser.getVideogamesInPagesRange(AFTER_RELEASE_URL, startPage, endPage);
         videogameService.saveVideogamesList(videogameList);
     }
 }

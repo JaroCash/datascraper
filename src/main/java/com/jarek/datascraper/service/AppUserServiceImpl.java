@@ -26,9 +26,9 @@ public class AppUserServiceImpl implements AppUserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 
-        List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
-
         AppUser appUser = appUserRepository.findByLogin(login);
+
+        List<SimpleGrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(appUser.getRole()));
 
         if (appUser == null) {
             throw new UsernameNotFoundException("User not found");
