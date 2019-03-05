@@ -13,18 +13,18 @@ public class VideogameServiceImpl implements VideogameService {
 
     private VideogameRepository videogameRepository;
 
-    private VideogameDAO videogameDAO;
+//    private VideogameDAO videogameDAO;
 
     @Autowired
-    public VideogameServiceImpl(VideogameRepository videogameRepository, VideogameDAO videogameDAO) {
+    public VideogameServiceImpl(VideogameRepository videogameRepository) {
         this.videogameRepository = videogameRepository;
-        this.videogameDAO = videogameDAO;
     }
+
 
     @Override
     public void saveVideogamesList(List<Videogame> theVideogamesList) {
 
-        videogameDAO.saveVideogamesList(theVideogamesList);
+        theVideogamesList.forEach(videogame -> videogameRepository.save(videogame));
 
     }
 
@@ -36,11 +36,13 @@ public class VideogameServiceImpl implements VideogameService {
 
     @Override
     public List<Videogame> findByPlatformsContains(String platform) {
+
         return videogameRepository.findByPlatformsContains(platform);
     }
 
     @Override
     public List<Videogame> findByGenreContains(String genre) {
+
         return videogameRepository.findByGenreContains(genre);
     }
 }

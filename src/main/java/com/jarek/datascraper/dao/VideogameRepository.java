@@ -14,3 +14,5 @@ public interface VideogameRepository extends JpaRepository<Videogame, Integer> {
     List<Videogame> findByGenreContains(String genre);
 
 }
+
+

@@ -20,6 +20,8 @@ public class AppUser {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "api_key")
+    private String apiKey;
 
     public AppUser() {
     }
@@ -28,6 +30,13 @@ public class AppUser {
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    public AppUser(String login, String password, String role, String apiKey) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.apiKey = apiKey;
     }
 
     public int getId() {
@@ -62,6 +71,14 @@ public class AppUser {
         this.role = role;
     }
 
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     @Override
     public String toString() {
         return "AppUser{" +
@@ -69,6 +86,7 @@ public class AppUser {
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
+                ", apiKey='" + apiKey + '\'' +
                 '}';
     }
 }

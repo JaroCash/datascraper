@@ -25,7 +25,7 @@
 //import javax.sql.DataSource;
 //
 ////@Configuration
-//@EnableWebSecurity
+////@EnableWebSecurity
 //public class SecurityConfig {
 //
 //    @Bean
@@ -62,13 +62,13 @@
 ////        @Autowired
 ////        AppUserServiceImpl userDetailsService;
 //
-////        @Override
-////        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//////            auth.userDetailsService(userDetailsService)
-//////                .passwordEncoder(passwordEncoder());
-//////        auth.authenticationProvider(authenticationProvider());
-////                  auth.inMemoryAuthentication().withUser("tom").password(passwordEncoder().encode("abc123")).roles("USER");
-////        }
+//        @Override
+//        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////            auth.userDetailsService(userDetailsService)
+////                .passwordEncoder(passwordEncoder());
+////        auth.authenticationProvider(authenticationProvider());
+//                  auth.inMemoryAuthentication().withUser("tom").password(passwordEncoder().encode("abc123")).roles("USER");
+//        }
 //
 ////    @Override
 ////    protected void configure(HttpSecurity http) throws Exception {
