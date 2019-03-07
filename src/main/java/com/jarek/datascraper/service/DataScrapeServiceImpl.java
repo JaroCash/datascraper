@@ -2,6 +2,7 @@ package com.jarek.datascraper.service;
 
 import com.jarek.datascraper.concurrent.AsyncDataScrapeService;
 import com.jarek.datascraper.config.GryOnlineProperties;
+import com.jarek.datascraper.config.PageParserProperties;
 import com.jarek.datascraper.entity.Videogame;
 import com.jarek.datascraper.parser.GryonlineHelper;
 import com.jarek.datascraper.parser.GryonlineParser;
@@ -43,32 +44,25 @@ public class DataScrapeServiceImpl implements DataScrapeService {
     @Override
     public void scrapeVideogamesAfterRelease() {
 
-        List<Videogame> videogameList =  gryonlineParser.getAllVideogames(properties.getAfterReleaseURL(), properties.getAfterReleaseParserParam());
+        List<Videogame> videogamesList =  gryonlineParser.getAllVideogames(properties.getAfterReleaseURL(), properties.getAfterReleaseParserParam());
 
-        saveVideogamesList(videogameList);
+        videogameService.saveVideogamesList(videogamesList);
     }
 
     //the number of games before release is significantly smaller than after release, no point to use multiple threads
     @Override
     public void scrapeVideogamesBeforeRelease() {
 
-        List<Videogame> videogameList = gryonlineParser.getAllVideogames(properties.getBeforeReleaseURL(), properties.getBeforeReleaseParserParam() );
+        List<Videogame> videogamesList = gryonlineParser.getAllVideogames(properties.getBeforeReleaseURL(), properties.getBeforeReleaseParserParam() );
 
-        saveVideogamesList(videogameList);
-
-    }
-
-    @Override
-    public void saveVideogamesList(List<Videogame> theVideogamesList) {
-
-            videogameService.saveVideogamesList(theVideogamesList);
+        videogameService.saveVideogamesList(videogamesList);
 
     }
 
     @Override
     public void scrapeVideogamesAfterReleaseUsingThreads(int numberOfThreads) {
 
-        int numberOfPages = gryonlineHelper.countPages(properties.getAfterReleaseURL());
+        int numberOfPages = gryonlineHelper.countPages(properties.getAfterReleaseParserParam());
 
         int[] pageRangeArr = gryonlineHelper.countPageRanges(numberOfPages, numberOfThreads);
 

@@ -23,3 +23,5 @@
 /nbdist/
 /.nb-gradle/
 /build/
+/src/main/java/com/jarek/datascraper/dao/AppUserDAO.java
+/src/main/java/com/jarek/datascraper/dao/VideogameDAO.java

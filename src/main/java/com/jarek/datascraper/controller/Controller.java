@@ -22,24 +22,26 @@ public class Controller {
 
     private VideogameService videogameService;
 
-    public DataScraperThreadRunner dataScraperThreadRunner;
-
-    private AsyncDataScrapeService asyncDataScrapeService;
-
+    ///////////////
     private AppUserServiceImpl appUserService;
 
     @Autowired
-    public Controller(DataScrapeService dataScrapeService, VideogameService videogameService, AsyncDataScrapeService asyncDataScrapeService, AppUserServiceImpl appUserService) {
+    public Controller(DataScrapeService dataScrapeService, VideogameService videogameService, AppUserServiceImpl appUserService) {
         this.dataScrapeService = dataScrapeService;
         this.videogameService = videogameService;
-        this.asyncDataScrapeService = asyncDataScrapeService;
         this.appUserService = appUserService;
     }
 
     @GetMapping("/before")
     public String scrapeBeforeRelease() {
 
+        final long start = System.currentTimeMillis();
+
         dataScrapeService.scrapeVideogamesBeforeRelease();
+
+        final long end = System.currentTimeMillis();
+
+        System.out.println("zapisano" + (end- start) );
 
         return "before release";
     }
@@ -71,7 +73,7 @@ public class Controller {
     }
 
     @GetMapping("/thread")
-    public void runThread() {
+    public String runThread() {
         long start = System.nanoTime();
 
 
@@ -84,6 +86,8 @@ public class Controller {
         }
         long elapsedTime = System.nanoTime() - start;
         System.out.println( elapsedTime);
+
+        return "after release";
     }
 
     @GetMapping("/hello")

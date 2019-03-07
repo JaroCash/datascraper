@@ -1,5 +1,7 @@
 package com.jarek.datascraper.entity;
 
+import org.hibernate.annotations.SelectBeforeUpdate;
+
 import javax.persistence.*;
 
 @Entity
