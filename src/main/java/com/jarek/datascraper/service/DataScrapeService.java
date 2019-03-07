@@ -12,8 +12,6 @@ public interface DataScrapeService {
 
     public void scrapeVideogamesBeforeRelease();
 
-    public void saveVideogamesList(List<Videogame> theVideogamesList);
-
     public void scrapeVideogamesAfterReleaseUsingThreads(int numberOfThreads);
 
 //    public void scrapeVideogamesInPageRange(int start, int end);

@@ -1,6 +1,8 @@
 package com.jarek.datascraper.parser;
 
 
+import com.jarek.datascraper.config.GryOnlineProperties;
+import com.jarek.datascraper.config.PageParserProperties;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,6 +21,9 @@ class GryonlineHelperTest {
     @Mock
     PageParser pageParser;
 
+    @Mock
+    GryOnlineProperties properties;
+
     @InjectMocks
     GryonlineHelper gryonlineHelper;
 
@@ -35,10 +40,10 @@ class GryonlineHelperTest {
     }
 
     @Test
-    public void shouldReturnPageCount() {
+    public void shouldReturnPageCountOfGamesAfterRelease() {
 
         when(pageParser.getSingleParsedString(any(),any())).thenReturn("20832");
-        assertEquals(gryonlineHelper.countPages("a[href=/gry/22]>stxt"), 868);
+        assertEquals(gryonlineHelper.countPages(properties.getAfterReleaseURL()), 868);
 
 
     }

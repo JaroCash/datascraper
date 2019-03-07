@@ -1,5 +1,8 @@
 package com.jarek.datascraper.parser;
 
+import com.jarek.datascraper.config.GryOnlineProperties;
+import com.jarek.datascraper.config.PageParserProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -7,21 +10,22 @@ import java.util.Arrays;
 @Component
 public class GryonlineHelper {
 
-    private final String URL_TO_GET_PAGES = "https://www.gry-online.pl/gry/";
+    private GryOnlineProperties properties;
 
     private PageParser pageParser;
 
-    public GryonlineHelper(PageParser pageParser) {
+    @Autowired
+    public GryonlineHelper(GryOnlineProperties properties, PageParser pageParser) {
+        this.properties = properties;
         this.pageParser = pageParser;
     }
 
+
     public int countPages(String parserParam) {
 
-        String resultString = pageParser.getSingleParsedString(URL_TO_GET_PAGES, parserParam );
+        String resultString = pageParser.getSingleParsedString(properties.getPageCountURL(), parserParam );
 
-       int numberOfPages = (int) Math.ceil((Double.parseDouble(resultString))/24);
-
-//        int numberOfPages = 868;
+        int numberOfPages = (int) Math.ceil((Double.parseDouble(resultString))/24);
 
         return numberOfPages;
     }

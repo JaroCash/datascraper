@@ -1,5 +1,6 @@
 package com.jarek.datascraper.parser;
 
+import com.jarek.datascraper.config.PageParserProperties;
 import com.jarek.datascraper.entity.Videogame;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,14 @@ public class GryonlineParserImpl implements GryonlineParser {
 
     private GryonlineHelper gryonlineHelper;
 
+    private PageParserProperties properties;
+
     @Autowired
-    public GryonlineParserImpl(PageParser pageParser, DocumentCreator documentCreator, GryonlineHelper gryonlineHelper) {
+    public GryonlineParserImpl(PageParser pageParser, DocumentCreator documentCreator, GryonlineHelper gryonlineHelper, PageParserProperties properties) {
         this.pageParser = pageParser;
         this.documentCreator = documentCreator;
         this.gryonlineHelper = gryonlineHelper;
+        this.properties = properties;
     }
 
     public List<Videogame> getAllVideogames(String url, String parserParam) {
@@ -57,11 +61,11 @@ public class GryonlineParserImpl implements GryonlineParser {
 
         List<Videogame> videogameList = new ArrayList<>();
 
-        List<String> titlesList = pageParser.getParsedStrings(document, "h5");
-        List<String> genreList = pageParser.getParsedStrings(document, ".opis-b>b");
-        List<String> releaseDateList = pageParser.getParsedStringsOwnTextMethod(document, ".opis-b");
-        List<String> descriptionList = pageParser.getParsedStrings(document, ".lista.lista-gry>.box>p:nth-child(4)");
-        List<String> platformsList = pageParser.getParsedStrings(document, ".lista.lista-gry>.box>p:nth-child(5)");
+        List<String> titlesList = pageParser.getParsedStrings(document, properties.getTitleParam());
+        List<String> genreList = pageParser.getParsedStrings(document, properties.getGenreParam());
+        List<String> releaseDateList = pageParser.getParsedStringsOwnTextMethod(document, properties.getReleaseDateParam());
+        List<String> descriptionList = pageParser.getParsedStrings(document, properties.getDescriptionParam());
+        List<String> platformsList = pageParser.getParsedStrings(document, properties.getPlatformParam());
 
         for (int i = 0; i < titlesList.size(); i++) {
 
@@ -69,8 +73,6 @@ public class GryonlineParserImpl implements GryonlineParser {
 
         }
         return videogameList;
-
     }
 
 }
-//.listalista-gry>.box>p:nth-child(4)
