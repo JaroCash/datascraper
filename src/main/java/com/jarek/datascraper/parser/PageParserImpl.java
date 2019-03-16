@@ -28,9 +28,6 @@ public class PageParserImpl implements PageParser {
 
         elements.forEach(element -> parsedStringsList.add(element.text()));
 
-//        for ( Element element : elements) {
-//            parsedStringsList.add(element.text());
-//        }
         return  parsedStringsList;
     }
 

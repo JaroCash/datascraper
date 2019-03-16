@@ -12,7 +12,7 @@ public interface DataScrapeService {
 
     public void scrapeVideogamesBeforeRelease();
 
-    public void scrapeVideogamesAfterReleaseUsingThreads(int numberOfThreads);
+    public void scrapeVideogamesAfterReleaseThreads(int numberOfThreads);
 
 //    public void scrapeVideogamesInPageRange(int start, int end);
 

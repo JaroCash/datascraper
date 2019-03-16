@@ -15,9 +15,7 @@ public interface VideogameRepository extends JpaRepository<Videogame, Integer>  
 
     boolean existsByTitleAndReleaseDate(String title, String releaseDate);
 
-//    IdOnly findByTitleAndReleaseDate(String title, String releaseDate);
-
-    Videogame findByTitleAndReleaseDate(String title, String releaseDate);
+    IdOnly findFirstByTitle(String title);
 
 
   interface IdOnly {

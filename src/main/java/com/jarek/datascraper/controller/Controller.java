@@ -1,7 +1,5 @@
 package com.jarek.datascraper.controller;
 
-import com.jarek.datascraper.concurrent.AsyncDataScrapeService;
-import com.jarek.datascraper.concurrent.DataScraperThreadRunner;
 import com.jarek.datascraper.entity.Videogame;
 import com.jarek.datascraper.service.AppUserServiceImpl;
 import com.jarek.datascraper.service.DataScrapeService;
@@ -78,7 +76,7 @@ public class Controller {
 
 
         try {
-            dataScrapeService.scrapeVideogamesAfterReleaseUsingThreads(10);
+            dataScrapeService.scrapeVideogamesAfterReleaseThreads(10);
             System.out.println(Thread.activeCount());
 
         } catch (Exception e) {

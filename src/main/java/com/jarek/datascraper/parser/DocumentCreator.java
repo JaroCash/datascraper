@@ -13,8 +13,9 @@ public class DocumentCreator {
             return Jsoup.connect(URL)
                         .get();
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
         return null;
-    }
+
+   }
 }

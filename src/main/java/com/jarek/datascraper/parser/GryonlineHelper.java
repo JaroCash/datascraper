@@ -23,6 +23,7 @@ public class GryonlineHelper {
 
     public int countPages(String parserParam) {
 
+//        System.out.println("lalalaa " + properties.getPageCountURL());
         String resultString = pageParser.getSingleParsedString(properties.getPageCountURL(), parserParam );
 
         int numberOfPages = (int) Math.ceil((Double.parseDouble(resultString))/24);
@@ -42,18 +43,19 @@ public class GryonlineHelper {
 
     public int[] countPageRanges(int numberOfPages, int numberOfRanges) {
 
-        int [] calculatedRanges = new int [numberOfRanges+1];
+        int[] calculatedRanges;
 
-        double range = Math.round((double)numberOfPages/numberOfRanges);
-        System.out.println(range);
+        if(numberOfPages >= numberOfRanges) {
 
-        for (int i = 0; i < numberOfRanges; i++) {
-            calculatedRanges[i] = (int) range*i;
-        }
-        calculatedRanges[numberOfRanges] = numberOfPages;
+            calculatedRanges = new int[numberOfRanges + 1];
+            double range = Math.round((double) numberOfPages / numberOfRanges);
 
-        System.out.println(Arrays.toString(calculatedRanges));
+            for (int i = 0; i < numberOfRanges; i++) {
+                calculatedRanges[i] = (int) range * i;
+            }
+            calculatedRanges[numberOfRanges] = numberOfPages;
 
+        } else {calculatedRanges = new int[]{0,numberOfPages};}
         return calculatedRanges;
 
     }

@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface GryonlineParser {
 
-    public List<Videogame> getVideogamesFromPage(String url);
+     List<Videogame> getVideogamesFromPage(String url);
 
-    public List<Videogame> getAllVideogames(String url, String parserParam);
+     List<Videogame> getAllVideogames(String url, String parserParam);
 
-    public List<Videogame> getVideogamesInPagesRange(String urk, int start, int end);
+    List<Videogame> getVideogamesInPagesRange(String urk, int start, int end);
 
 }

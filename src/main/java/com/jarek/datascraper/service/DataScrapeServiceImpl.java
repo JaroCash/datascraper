@@ -60,7 +60,7 @@ public class DataScrapeServiceImpl implements DataScrapeService {
     }
 
     @Override
-    public void scrapeVideogamesAfterReleaseUsingThreads(int numberOfThreads) {
+    public void scrapeVideogamesAfterReleaseThreads(int numberOfThreads) {
 
         int numberOfPages = gryonlineHelper.countPages(properties.getAfterReleaseParserParam());
 
