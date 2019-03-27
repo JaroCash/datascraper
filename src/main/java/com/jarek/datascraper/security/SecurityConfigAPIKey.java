@@ -1,4 +1,4 @@
-package com.jarek.datascraper.config;
+package com.jarek.datascraper.security;
 
 import com.jarek.datascraper.exception.APIAuthenticationEntryPoint;
 import com.jarek.datascraper.exception.APIAuthenticationFailureHandler;
