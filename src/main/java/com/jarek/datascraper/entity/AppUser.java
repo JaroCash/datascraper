@@ -26,6 +26,10 @@ public class AppUser {
     public AppUser() {
     }
 
+    public AppUser(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     public AppUser(String login, String password, String role) {
         this.login = login;
         this.password = password;

@@ -63,9 +63,9 @@ public class GryonlineParserImpl implements GryonlineParser {
 
         List<String> titlesList = pageParser.getParsedStrings(document, properties.getTitleParam());
         List<String> genreList = pageParser.getParsedStrings(document, properties.getGenreParam());
-        List<String> releaseDateList = pageParser.getParsedStringsOwnTextMethod(document, properties.getReleaseDateParam());
         List<String> descriptionList = pageParser.getParsedStrings(document, properties.getDescriptionParam());
         List<String> platformsList = pageParser.getParsedStrings(document, properties.getPlatformParam());
+        List<String> releaseDateList = pageParser.getParsedStringsOwnTextMethod(document, properties.getReleaseDateParam());
 
         for (int i = 0; i < titlesList.size(); i++) {
 

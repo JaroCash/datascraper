@@ -1,7 +1,6 @@
 package com.jarek.datascraper.controller;
 
 import com.jarek.datascraper.entity.Videogame;
-import com.jarek.datascraper.service.AppUserServiceImpl;
 import com.jarek.datascraper.service.DataScrapeService;
 import com.jarek.datascraper.service.VideogameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +20,11 @@ public class Controller {
     private VideogameService videogameService;
 
     ///////////////
-    private AppUserServiceImpl appUserService;
 
     @Autowired
-    public Controller(DataScrapeService dataScrapeService, VideogameService videogameService, AppUserServiceImpl appUserService) {
+    public Controller(DataScrapeService dataScrapeService, VideogameService videogameService) {
         this.dataScrapeService = dataScrapeService;
         this.videogameService = videogameService;
-        this.appUserService = appUserService;
     }
 
     @GetMapping("/before")
@@ -48,8 +45,6 @@ public class Controller {
     public List<Videogame> findByTitle() {
 
         List<Videogame> videoGameTitle = videogameService.findByTitle("Hyper Jam");
-
-        System.out.println(appUserService.loadUserByUsername("n1"));
 
         return videoGameTitle;
     }

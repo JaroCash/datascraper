@@ -85,8 +85,7 @@ class GryonlineHelperTest {
     @Test
     public void shouldReturnPageCountBasedOnNumberOfGames() {
 
-        doReturn("20832").when(pageParser)
-                         .getSingleParsedString(any(), any());
+        doReturn("20832").when(pageParser).getSingleParsedString(any(), any());
         assertEquals(868, gryonlineHelper.countPages("a[href=/gry/22]>stxt"));
 
     }

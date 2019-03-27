@@ -23,7 +23,6 @@ public class GryonlineHelper {
 
     public int countPages(String parserParam) {
 
-//        System.out.println("lalalaa " + properties.getPageCountURL());
         String resultString = pageParser.getSingleParsedString(properties.getPageCountURL(), parserParam );
 
         int numberOfPages = (int) Math.ceil((Double.parseDouble(resultString))/24);
