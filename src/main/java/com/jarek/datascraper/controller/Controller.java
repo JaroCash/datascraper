@@ -19,7 +19,6 @@ public class Controller {
 
     private VideogameService videogameService;
 
-    ///////////////
 
     @Autowired
     public Controller(DataScrapeService dataScrapeService, VideogameService videogameService) {
@@ -30,13 +29,7 @@ public class Controller {
     @GetMapping("/before")
     public String scrapeBeforeRelease() {
 
-        final long start = System.currentTimeMillis();
-
         dataScrapeService.scrapeVideogamesBeforeRelease();
-
-        final long end = System.currentTimeMillis();
-
-        System.out.println("zapisano" + (end- start) );
 
         return "before release";
     }
@@ -67,9 +60,6 @@ public class Controller {
 
     @GetMapping("/thread")
     public String runThread() {
-        long start = System.nanoTime();
-
-
         try {
             dataScrapeService.scrapeVideogamesAfterReleaseThreads(10);
             System.out.println(Thread.activeCount());
@@ -77,9 +67,6 @@ public class Controller {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        long elapsedTime = System.nanoTime() - start;
-        System.out.println( elapsedTime);
-
         return "after release";
     }
 

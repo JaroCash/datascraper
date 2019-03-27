@@ -25,14 +25,6 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 public class GryonlineParserImplTest {
 
-    @Spy
-    PageParser pageParser;
-
-    PageParserProperties properties;
-
-    @Mock
-    DocumentCreator documentCreator;
-
     @Mock
     GryonlineHelper helper;
 

@@ -52,10 +52,4 @@ public class PageParserImpl implements PageParser {
                               .text();
     }
 
-//    public Elements getElementsFromPage(String url, String... parserParam) {
-//
-//        Document document = documentCreator.createDocument(url);
-//
-//
-//    }
 }

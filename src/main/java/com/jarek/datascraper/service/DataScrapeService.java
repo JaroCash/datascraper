@@ -6,14 +6,13 @@ import java.util.List;
 
 public interface DataScrapeService {
 
-    public void scrapeAllVideoGames();
+    void scrapeAllVideoGames();
 
-    public void scrapeVideogamesAfterRelease();
+    void scrapeVideogamesAfterRelease();
 
-    public void scrapeVideogamesBeforeRelease();
+    void scrapeVideogamesBeforeRelease();
 
-    public void scrapeVideogamesAfterReleaseThreads(int numberOfThreads);
+   void scrapeVideogamesAfterReleaseThreads(int numberOfThreads);
 
-//    public void scrapeVideogamesInPageRange(int start, int end);
 
 }
