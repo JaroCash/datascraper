@@ -2,8 +2,6 @@ package com.jarek.datascraper.security;
 
 import com.jarek.datascraper.exception.APIAuthenticationEntryPoint;
 import com.jarek.datascraper.exception.APIAuthenticationFailureHandler;
-import com.jarek.datascraper.security.APIKeyAuthenticationFilter;
-import com.jarek.datascraper.security.APIKeyAuthenticationManager;
 import com.jarek.datascraper.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.AuthenticationEntryPoint;
-import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
@@ -23,14 +20,14 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfigAPIKey extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AppUserService appUserService;
 
-    public APIKeyAuthenticationFilter authenticationFilter() throws Exception {
-        APIKeyAuthenticationFilter filter = new APIKeyAuthenticationFilter();
-        filter.setAuthenticationManager(new APIKeyAuthenticationManager(appUserService));
+    public APIAuthenticationFilter authenticationFilter() throws Exception {
+        APIAuthenticationFilter filter = new APIAuthenticationFilter();
+        filter.setAuthenticationManager(new APIAuthenticationManager(appUserService));
         filter.setAuthenticationFailureHandler(APIfailureHandler());
         return filter;
     }

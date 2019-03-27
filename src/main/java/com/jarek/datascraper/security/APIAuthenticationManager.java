@@ -12,11 +12,11 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 
-public class APIKeyAuthenticationManager implements AuthenticationManager {
+public class APIAuthenticationManager implements AuthenticationManager {
 
     private AppUserService appUserService;
 
-    public APIKeyAuthenticationManager(AppUserService appUserService) {
+    public APIAuthenticationManager(AppUserService appUserService) {
         this.appUserService = appUserService;
     }
 
