@@ -2,10 +2,8 @@ package com.jarek.datascraper.security;
 
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
+
 import java.util.UUID;
 
 @Service

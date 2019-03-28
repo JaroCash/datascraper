@@ -25,8 +25,10 @@ public class APIAuthenticationManager implements AuthenticationManager {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
+        String digest = apiKeyService.generateDigest(authentication.getPrincipal()
+                                                                   .toString());
 
-        AppUser tempAppUser = appUserService.findByApiKey(authentication.getPrincipal().toString());
+        AppUser tempAppUser = appUserService.findByApiKey(digest);
 
         if (tempAppUser!=null) {
         authentication.setAuthenticated(true);
