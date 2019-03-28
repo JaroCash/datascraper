@@ -15,13 +15,16 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class APIAuthenticationManager implements AuthenticationManager {
 
     private AppUserService appUserService;
+    private APIKeyService apiKeyService;
 
-    public APIAuthenticationManager(AppUserService appUserService) {
+    public APIAuthenticationManager(AppUserService appUserService, APIKeyService apiKeyService) {
         this.appUserService = appUserService;
+        this.apiKeyService = apiKeyService;
     }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+
 
         AppUser tempAppUser = appUserService.findByApiKey(authentication.getPrincipal().toString());
 

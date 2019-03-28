@@ -24,26 +24,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private AppUserService appUserService;
+    @Autowired
+    private APIKeyService apiKeyService;
+
 
     public APIAuthenticationFilter authenticationFilter() throws Exception {
         APIAuthenticationFilter filter = new APIAuthenticationFilter();
-        filter.setAuthenticationManager(new APIAuthenticationManager(appUserService));
+        filter.setAuthenticationManager(new APIAuthenticationManager(appUserService,apiKeyService));
         filter.setAuthenticationFailureHandler(APIfailureHandler());
         return filter;
     }
-
 
     @Bean
     public AuthenticationFailureHandler APIfailureHandler() {
         return new APIAuthenticationFailureHandler("/exception");
     }
 
-
-
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

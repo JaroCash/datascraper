@@ -52,3 +52,4 @@ src/test/java/com/jarek/datascraper/security/
 src/test/resources/
 !/src/main/java/com/jarek/datascraper/exception/ExceptionController.java
 !/src/main/java/com/jarek/datascraper/security/APIKeyAuthenticationFilter.java
+src/main/java/com/jarek/datascraper/exception/RestExceptionHandler.java
