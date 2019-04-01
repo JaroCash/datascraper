@@ -5,24 +5,36 @@
     <title>Register</title>
 </head>
 <body>
-<h1 th:text="#{label.form.title}">form</h1>
+<h1>Register</h1>
 <form action="/processRegister" th:object="${user}" method="POST" enctype="utf8">
     <div>
-        <label th:text="#{label.user.login}">first</label>
-        <input th:field="*{login}"/>
+        <label for="login">Login</label>
+        <input type="text" th:field="*{login}" id="login"/>
+        <p th:if="${#fields.hasErrors('login')}" th:errors="*{login}"/>
     </div>
     <div>
-        <label th:text="#{label.user.password}">email</label>
-        <input type="password" th:field="*{password}"/>
+        <label for="email">Email</label>
+        <input type = "text" th:field="*{email}" id="email"/>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"/>
     </div>
     <div>
-        <label th:text="#{label.user.password}">password</label>
-        <input type="password" th:field="*{password}"/>
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}" id="password"/>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"/>
+    </div>
+    <div>
+        <label for="matchingPassword">Repeat password</label>
+        <input type="password" th:field="*{matchingPassword}" id="matchingPassword"/>
+        <p th:if="${#user.hasA}" th:errors="*{user}"/>
     </div>
     <button type="submit" th:text="#{label.form.submit}">submit</button>
 </form>
 
 <a th:href="@{/login.html}" th:text="#{label.form.loginLink}">login</a>
+<div>
+    <td th:text="${message} ?: ''"/>
+</div>
+
 
 </body>
 </html>

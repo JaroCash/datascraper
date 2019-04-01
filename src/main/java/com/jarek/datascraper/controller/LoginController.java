@@ -3,18 +3,26 @@ package com.jarek.datascraper.controller;
 import com.jarek.datascraper.entity.UserDTO;
 import com.jarek.datascraper.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.nio.file.AccessDeniedException;
+import javax.validation.Valid;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping("/")
 public class LoginController {
+
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder){
+
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+    }
 
     private AppUserService appUserService;
 
@@ -23,7 +31,7 @@ public class LoginController {
         this.appUserService = appUserService;
     }
 
-    @GetMapping("/loginPage")
+    @GetMapping("/login")
     public String showLoginPage(){
         return "login";
     }
@@ -33,9 +41,9 @@ public class LoginController {
         return "elo";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/errorr")
     public String showErrorPage() {
-        return "error";
+        return "er";
     }
 
     @GetMapping("/success")
@@ -52,9 +60,20 @@ public class LoginController {
     }
 
     @PostMapping("/processRegister")
-    public void processRegister(@ModelAttribute("user") UserDTO userDTO) {
+    public String processRegister(@ModelAttribute("user") @Valid UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
-    appUserService.registerAppUser(userDTO);
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
+//        if (appUserService.existsInDatabase(userDTO)) {
+//
+//        }
+
+    String apiKey = appUserService.registerAppUser(userDTO);
+
+    redirectAttributes.addFlashAttribute("message", "Successfully registered. You can now log in. Your API key is: "+apiKey);
+
+    return "redirect:/registerPage";
 
     }
 }

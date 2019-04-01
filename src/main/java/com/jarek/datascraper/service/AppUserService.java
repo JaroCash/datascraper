@@ -12,6 +12,12 @@ public interface AppUserService {
 
     void saveAppUser(AppUser appUser);
 
-    void registerAppUser(UserDTO userDTO);
+    String registerAppUser(UserDTO userDTO);
+
+    boolean existsByLogin(String login);
+
+    boolean existsByEmail(String email);
+
+    boolean existsInDatabase(UserDTO userDTO);
 
 }

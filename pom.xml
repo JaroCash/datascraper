@@ -11,7 +11,7 @@
 	<groupId>com.jarek</groupId>
 	<artifactId>apicreator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>apicreator</name>
+	<name>datascraper</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

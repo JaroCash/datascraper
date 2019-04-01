@@ -7,7 +7,13 @@ public interface AppUserRepository  extends JpaRepository<AppUser, Integer> {
 
     AppUser findByLogin(String login);
 
+    AppUser findByLoginAndApiKey(String login, String apiKey);
+
     AppUser findByApiKey(String apiKey);
+
+    boolean existsByLogin(String login);
+
+    boolean existsByEmail(String email);
 
 
 }

@@ -38,18 +38,38 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public void registerAppUser(UserDTO userDTO) {
-//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//        AppUser appUser = new AppUser();
-//
-//        String apiKey = apiKeyService.generateKey();
-//        appUser.setLogin(userDTO.getLogin());
-//        appUser.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-//        appUser.setApiKey(apiKeyService.generateDigest(apiKey));
-//        appUser.setRole("ROLE_USER");
-//
-//        System.out.println(apiKey);
-//        appUserRepository.save(appUser);
+    public String registerAppUser(UserDTO userDTO) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(4);
+
+        AppUser appUser = new AppUser();
+
+        String apiKey = apiKeyService.generateKey();
+
+        appUser.setLogin(userDTO.getLogin());
+        appUser.setEmail(userDTO.getEmail());
+        appUser.setPassword("{bcrypt}" + passwordEncoder.encode(userDTO.getPassword()));
+        appUser.setApiKey(apiKeyService.generateDigest(apiKey));
+        appUser.setRole("ROLE_USER");
+
+        appUserRepository.save(appUser);
+
+        return apiKey;
+    }
+
+    @Override
+    public boolean existsByLogin(String login) {
+        return appUserRepository.existsByLogin(login);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        return appUserRepository.existsByEmail(email);
+    }
+
+    @Override
+    public boolean existsInDatabase(UserDTO userDTO) {
+
+        return (appUserRepository.existsByEmail(userDTO.getEmail()) && appUserRepository.existsByLogin(userDTO.getLogin()));
     }
 
 }

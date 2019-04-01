@@ -2,11 +2,13 @@ package com.jarek.datascraper.parser;
 
 import com.jarek.datascraper.config.PageParserProperties;
 import com.jarek.datascraper.entity.Videogame;
+import org.apache.el.stream.Stream;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class GryonlineParserImpl implements GryonlineParser {

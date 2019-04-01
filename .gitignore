@@ -38,7 +38,7 @@ src/main/java/com/jarek/datascraper/security/CustomAuthenticationFilter.java
 src/main/java/com/jarek/datascraper/security/CustomAuthenticationToken.java
 src/main/java/com/jarek/datascraper/security/CustomUserDetailsAuthenticationProvider.java
 src/main/resources/static/
-src/main/resources/templates/error.html
+src/main/resources/templates/er.html
 src/main/resources/templates/plain-login.jsp
 src/main/resources/templates/success.html
 src/test/java/com/jarek/datascraper/controller/
