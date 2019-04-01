@@ -17,13 +17,6 @@ import javax.validation.Valid;
 @RequestMapping("/")
 public class LoginController {
 
-    @InitBinder
-    public void initBinder(WebDataBinder dataBinder){
-
-        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
-        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
-    }
-
     private AppUserService appUserService;
 
     @Autowired
@@ -34,11 +27,6 @@ public class LoginController {
     @GetMapping("/login")
     public String showLoginPage(){
         return "login";
-    }
-
-    @GetMapping("/access-denied")
-    public String showAccessDeniedPage() {
-        return "elo";
     }
 
     @GetMapping("/errorr")
